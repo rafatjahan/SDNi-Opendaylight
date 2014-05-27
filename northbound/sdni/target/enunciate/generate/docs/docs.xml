@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="SDNi REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="networkCapabilities" id="org.opendaylight.controller.sdni.NetworkCapabilities" package="org.opendaylight.controller.sdni">
+          <groups>
+            <group>NetworkCapabilities</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="node">
+              <choice name="node" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="latency">
+              <choice name="latency" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="macAddressList">
+              <choice name="macAddressList" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="bandwidth">
+              <choice name="bandwidth" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="link">
+              <choice name="link" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="controller">
+              <choice name="controller" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="host">
+              <choice name="host" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="ipAddressList">
+              <choice name="ipAddressList" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="networkCapabilities" type="org.opendaylight.controller.sdni.NetworkCapabilities" typeName="networkCapabilities" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>NetworkCapabilities</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<networkCapabilities>
+  <node>...</node>
+  <node>...</node>
+  <!--...more "node" elements...-->
+  <latency>...</latency>
+  <latency>...</latency>
+  <!--...more "latency" elements...-->
+  <macAddressList>...</macAddressList>
+  <macAddressList>...</macAddressList>
+  <!--...more "macAddressList" elements...-->
+  <bandwidth>...</bandwidth>
+  <bandwidth>...</bandwidth>
+  <!--...more "bandwidth" elements...-->
+  <link>...</link>
+  <link>...</link>
+  <!--...more "link" elements...-->
+  <controller>...</controller>
+  <controller>...</controller>
+  <!--...more "controller" elements...-->
+  <host>...</host>
+  <host>...</host>
+  <!--...more "host" elements...-->
+  <ipAddressList>...</ipAddressList>
+  <ipAddressList>...</ipAddressList>
+  <!--...more "ipAddressList" elements...-->
+</networkCapabilities>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>NetworkCapabilities</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/{containerName}/topology" subcontext="/controller/nb/v2/sdni">
+        <groups>
+          <group>SdniNorthbound</group>
+        </groups>
+        <operation name="GET">
+          <documentation>
+            <![CDATA[Retrieve the Network Capabilities information like links, bandwidth, node etc.,]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="false"/>
+          <contentType type="application/xml" consumable="true" produceable="false"/>
+          <contentType type="application/json" consumable="false" produceable="true"/>
+          <parameter name="containerName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="networkCapabilities" />
+            
+            <documentation><![CDATA[Return Links, Bandwidth, Latency, Node and its mac address, hosts and its IP address
+
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/sdni/default/topology
+
+Response Body in XML:
+{"link":["(OF|2@OF|00:00:00:00:00:00:00:01->OF|3@OF|00:00:00:00:00:00:00:03)",
+"(OF|3@OF|00:00:00:00:00:00:00:03->OF|2@OF|00:00:00:00:00:00:00:01)",
+"(OF|1@OF|00:00:00:00:00:00:00:01->OF|3@OF|00:00:00:00:00:00:00:02)",
+"(OF|3@OF|00:00:00:00:00:00:00:02->OF|1@OF|00:00:00:00:00:00:00:01)"],
+"bandwidth":["10Gbps","10Gbps","10Gbps","10Gbps"],"latency":[],
+"macAddressList":["00:00:00:00:00:01","00:00:00:00:00:02","00:00:00:00:00:03"],
+"ipAddressList":["10.0.0.1","10.0.0.3"],"controller":["10.132.35.14"],
+"node":["00:00:00:00:00:00:00:01","00:00:00:00:00:00:00:02",
+"00:00:00:00:00:00:00:03"],"host":["1","1"]}]]></documentation>
+          </outValue>
+          <statusCode code="404">
+            <![CDATA[The Container Name was not found]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>SdniNorthbound</name>
+        <documentation><![CDATA[The class provides Northbound SDNi REST APIs to access the nodes, node connectors
+and their properties.]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.sdnimanager.northbound">
+    </package>
+  </packages>
+</api-docs>

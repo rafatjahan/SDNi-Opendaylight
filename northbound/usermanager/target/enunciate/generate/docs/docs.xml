@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="User Management  REST API">
+  <data>
+    <schema namespace="" namespaceId="ns0" file="ns0.xsd">
+      <types>
+        <type name="configurationObject" id="org.opendaylight.controller.configuration.ConfigurationObject" package="org.opendaylight.controller.configuration">
+          <groups>
+            <group>ConfigurationObject</group>
+          </groups>
+        </type>
+        <type name="userConfig" id="org.opendaylight.controller.usermanager.UserConfig" package="org.opendaylight.controller.usermanager" extendsType="org.opendaylight.controller.configuration.ConfigurationObject">
+          <groups>
+            <group>UserConfig</group>
+          </groups>
+          <elements>
+            <element minOccurs="0" maxOccurs="1" jsonName="user">
+              <choice name="user" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" jsonName="roles">
+              <choice name="roles" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+            <element minOccurs="0" maxOccurs="1" jsonName="password">
+              <choice name="password" namespace="" typeNamespace="http://www.w3.org/2001/XMLSchema" typeName="string"/>
+            </element>
+          </elements>
+        </type>
+      </types>
+      <elements>
+        <element name="userConfig" type="org.opendaylight.controller.usermanager.UserConfig" typeName="userConfig" typeNamespace="" typeSchemaId="ns0">
+          <groups>
+            <group>UserConfig</group>
+          </groups>
+          <examplexml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<userConfig>
+  <user>...</user>
+  <roles>...</roles>
+  <roles>...</roles>
+  <!--...more "roles" elements...-->
+  <password>...</password>
+</userConfig>]]></examplexml>
+        </element>
+      </elements>
+      <groups>
+        <group>
+          <name>ConfigurationObject</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+        <group>
+          <name>UserConfig</name>
+          <documentation><![CDATA[]]></documentation>
+        </group>
+      </groups>
+    </schema>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/users" subcontext="/controller/nb/v2/usermanager">
+        <groups>
+          <group>UserManagerNorthbound</group>
+        </groups>
+        <operation name="POST">
+          <documentation>
+            <![CDATA[Add a user]]>
+          </documentation>
+          <contentType type="*/*" consumable="false" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <contentType type="application/json" consumable="true" produceable="false"/>
+          <inValue>
+            <xmlElement elementSchemaId="ns0" elementNamespace="" elementName="userConfig" />
+            
+            <documentation><![CDATA[the UserConfig user config structure in request body]]></documentation>
+          </inValue>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+https://localhost/controller/nb/v2/usermanager/users
+
+Request body in XML:
+&lt;userConfig&gt;
+&lt;user&gt;testuser&lt;/user&gt;
+&lt;roles&gt;Network-Admin&lt;/roles&gt;
+&lt;password&gt;pass!23&lt;/password&gt;
+&lt;/userConfig&gt;
+
+Request body in JSON:
+{
+"user":"testuser",
+"password":"pass!23",
+"roles":[
+"Network-Admin"
+]
+}
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="201">
+            <![CDATA[User created successfully]]>
+          </statusCode>
+          <statusCode code="400">
+            <![CDATA[Invalid data passed]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="409">
+            <![CDATA[User name in url conflicts with name in request body]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[User config is null]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Internal Server Error: Addition of user failed]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+      <resource name="/users/{userName}" subcontext="/controller/nb/v2/usermanager">
+        <groups>
+          <group>UserManagerNorthbound</group>
+        </groups>
+        <operation name="DELETE">
+          <documentation>
+            <![CDATA[Delete a user]]>
+          </documentation>
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="userName" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[Response as dictated by the HTTP Response Status code
+
+<pre>
+Example:
+
+Request URL:
+https://localhost/controller/nb/v2/usermanager/users/testuser
+
+</pre>]]></documentation>
+          </outValue>
+          <statusCode code="204">
+            <![CDATA[User Deleted Successfully]]>
+          </statusCode>
+          <statusCode code="401">
+            <![CDATA[User not authorized to perform this operation]]>
+          </statusCode>
+          <statusCode code="404">
+            <![CDATA[The userName passed was not found]]>
+          </statusCode>
+          <statusCode code="500">
+            <![CDATA[Internal Server Error : Removal of user failed]]>
+          </statusCode>
+          <statusCode code="503">
+            <![CDATA[Service unavailable]]>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <groups>
+      <group>
+        <name>UserManagerNorthbound</name>
+        <documentation><![CDATA[This class provides REST APIs to manage users.
+This API will only be availalbe via HTTPS.
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b> HTTPS </b><br>
+<br>
+HTTPS Authentication is disabled by default so to
+use UserManager APIs turn on HTTPS on Web Server]]></documentation>
+      </group>
+    </groups>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.usermanager.northbound">
+    </package>
+  </packages>
+</api-docs>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1398763849295
+Build-Jdk: 1.7.0_15
+Built-By: root
+Bundle-Description: HttpService bridge web application
+Bundle-ManifestVersion: 2
+Bundle-Name: httpservice-bridge
+Bundle-SymbolicName: org.opendaylight.controller.httpservice-bridge
+Bundle-Version: 0.0.2.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Import-Package: org.osgi.framework,javax.servlet.http,org.opendaylight.c
+ ontroller.web,org.slf4j,org.osgi.service.http,org.eclipse.equinox.http.
+ servlet,javax.servlet
+Tool: Bnd-2.1.0.20130426-122213
+Web-ContextPath: /controller/osgi

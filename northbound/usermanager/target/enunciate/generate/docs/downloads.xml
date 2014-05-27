@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<downloads>
+  <download name="C Client Library">
+    <created>29 Apr, 2014 3:01:29 PM</created>
+    <files>
+      <file name="full.c" size="16.16K"><![CDATA[]]></file>
+      <file name="enunciate-common.c" size="39.70K"><![CDATA[Common code needed for all projects.]]></file>
+    </files>
+    <description><![CDATA[<h1>
+  Introduction
+</h1>
+
+<p>
+  The C module generates the source code for the ANSI-C-compatible data structures and (de)serialization
+  functions that can be used in conjunction with <a href="http://xmlsoft.org/">libxml2</a> to (de)serialize
+  the REST resources as they are represented as XML data.
+</p>
+
+<p>
+  The generated C source code depends on the <a href="http://xmlsoft.org/html/libxml-xmlreader.html">XML Reader API</a>
+  and the <a href="http://xmlsoft.org/html/libxml-xmlwriter.html">XML Writer API</a> as well as the <tt>&lt;time.h&gt;</tt>,
+  <tt>&lt;string.h&gt;</tt>, and <tt>&lt;stdlib.h&gt;</tt> C standard libraries.
+</p>
+
+]]></description>
+    <dependencies>
+    </dependencies>
+  </download>
+  <download name=".NET Client Library">
+    <created>29 Apr, 2014 3:01:30 PM</created>
+    <platform>.NET 2.0</platform>
+    <files>
+      <file name="full-dotnet.zip" size="656.00bytes"><![CDATA[The C# source code for the .NET client library.]]></file>
+    </files>
+    <description><![CDATA[<h1>
+  Introduction
+</h1>
+
+<p>
+  This bundle contains C# source code.
+</p>]]></description>
+    <dependencies>
+    </dependencies>
+  </download>
+  <download name="Java Client Library">
+    <created>29 Apr, 2014 3:01:30 PM</created>
+    <platform>Java (Version 5+)</platform>
+    <files>
+      <file name="full-client.jar" size="2.58K"><![CDATA[The binaries for the Java client library.]]></file>
+      <file name="full-client-sources.jar" size="1.09K"><![CDATA[The sources for the Java client library.]]></file>
+    </files>
+    <description><![CDATA[<h1>
+  Introduction
+</h1>
+
+<p>
+  The Java client-side library is used to access the Web service API for this application.
+</p>
+
+]]></description>
+    <dependencies>
+    </dependencies>
+  </download>
+  <download name="Objective C Client Library">
+    <created>29 Apr, 2014 3:01:29 PM</created>
+    <files>
+      <file name="full.h" size="1.12K"><![CDATA[]]></file>
+      <file name="full.m" size="15.34K"><![CDATA[]]></file>
+      <file name="enunciate-common.h" size="12.81K"><![CDATA[Common header needed for all projects.]]></file>
+      <file name="enunciate-common.m" size="42.61K"><![CDATA[Common implementation code needed for all projects.]]></file>
+    </files>
+    <description><![CDATA[<h1>
+  Introduction
+</h1>
+
+<p>
+  The Objective C module generates the source code for the Objective C classes and (de)serialization
+  functions that can be used in conjunction with <a href="http://xmlsoft.org/">libxml2</a> to (de)serialize
+  the REST resources as they are represented as XML data.
+</p>
+
+<p>
+  The generated Objective C source code depends on the <a href="http://xmlsoft.org/html/libxml-xmlreader.html">XML Reader API</a>
+  and the <a href="http://xmlsoft.org/html/libxml-xmlwriter.html">XML Writer API</a> as well as the base OpenStep foundation classes.
+</p>
+
+]]></description>
+    <dependencies>
+    </dependencies>
+  </download>
+</downloads>

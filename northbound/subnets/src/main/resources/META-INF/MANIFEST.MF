@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1401087960845
+Build-Jdk: 1.7.0_15
+Built-By: root
+Bundle-ManifestVersion: 2
+Bundle-Name: subnets.northbound
+Bundle-SymbolicName: org.opendaylight.controller.subnets.northbound
+Bundle-Version: 0.4.2.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Ignore-Package: org.codehaus.enunciate.jaxrs
+Import-Package: com.fasterxml.jackson.jaxrs.base;version="[2.3,3)",com.f
+ asterxml.jackson.jaxrs.json;version="[2.3,3)",com.sun.jersey.spi.contai
+ ner.servlet,javax.ws.rs;version="[1.1,2)",javax.ws.rs.core;version="[1.
+ 1,2)",javax.xml.bind,javax.xml.bind.annotation,org.apache.catalina.filt
+ ers,org.opendaylight.controller.containermanager,org.opendaylight.contr
+ oller.northbound.commons,org.opendaylight.controller.northbound.commons
+ .exception,org.opendaylight.controller.northbound.commons.utils,org.ope
+ ndaylight.controller.sal.authorization,org.opendaylight.controller.sal.
+ core,org.opendaylight.controller.sal.utils,org.opendaylight.controller.
+ switchmanager,org.opendaylight.controller.usermanager,org.slf4j;version
+ ="[1.7,2)"
+Jaxrs-Resources: ,org.opendaylight.controller.subnets.northbound.Subnets
+ Northbound
+Originally-Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-1.50.0
+Web-ContextPath: /controller/nb/v2/subnetservice

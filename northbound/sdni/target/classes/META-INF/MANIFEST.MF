@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1400494150292
+Build-Jdk: 1.7.0_15
+Built-By: root
+Bundle-ManifestVersion: 2
+Bundle-Name: sdni.northbound
+Bundle-SymbolicName: org.opendaylight.controller.sdni.northbound
+Bundle-Version: 0.4.2.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.sdnimanager.northbound;uses:
+ ="javax.ws.rs,org.opendaylight.controller.hosttracker,org.opendaylight.
+ controller.sdni,org.opendaylight.controller.northbound.commons,org.slf4
+ j,org.opendaylight.controller.sal.utils,org.opendaylight.controller.con
+ tainermanager,org.opendaylight.controller.sal.authorization,org.openday
+ light.controller.northbound.commons.utils,org.opendaylight.controller.s
+ witchmanager,org.opendaylight.controller.northbound.commons.exception,j
+ avax.ws.rs.core";version="0.4.2.SNAPSHOT"
+Ignore-Package: org.codehaus.enunciate.jaxrs
+Import-Package: com.sun.jersey.spi.container.servlet,javax.ws.rs;version
+ ="[1.1,2)",javax.ws.rs.core;version="[1.1,2)",org.apache.commons.loggin
+ g,org.opendaylight.controller.containermanager,org.opendaylight.control
+ ler.hosttracker,org.opendaylight.controller.hosttracker.hostAware,org.o
+ pendaylight.controller.northbound.commons,org.opendaylight.controller.n
+ orthbound.commons.exception,org.opendaylight.controller.northbound.comm
+ ons.utils,org.opendaylight.controller.sal.authorization,org.opendayligh
+ t.controller.sal.core,org.opendaylight.controller.sal.utils,org.openday
+ light.controller.sdni,org.opendaylight.controller.switchmanager,org.ope
+ ndaylight.controller.usermanager,org.slf4j;version="[1.7,2)"
+Jaxrs-Resources: ,org.opendaylight.controller.sdnimanager.northbound.Sdn
+ iNorthbound
+Originally-Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-1.50.0
+Web-ContextPath: /controller/nb/v2/sdni

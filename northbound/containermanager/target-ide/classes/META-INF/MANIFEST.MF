@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1401088036084
+Build-Jdk: 1.7.0_15
+Built-By: root
+Bundle-ManifestVersion: 2
+Bundle-Name: containermanager.northbound
+Bundle-SymbolicName: org.opendaylight.controller.containermanager.northb
+ ound
+Bundle-Version: 0.4.2.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Ignore-Package: org.codehaus.enunciate.jaxrs
+Import-Package: com.fasterxml.jackson.jaxrs.base;version="[2.3,3)",com.f
+ asterxml.jackson.jaxrs.json;version="[2.3,3)",com.sun.jersey.spi.contai
+ ner.servlet,javax.ws.rs;version="[1.1,2)",javax.ws.rs.core;version="[1.
+ 1,2)",javax.xml.bind,javax.xml.bind.annotation,org.apache.catalina.filt
+ ers,org.opendaylight.controller.appauth.authorization;version="[0.4,1)"
+ ,org.opendaylight.controller.containermanager,org.opendaylight.controll
+ er.northbound.commons,org.opendaylight.controller.northbound.commons.ex
+ ception,org.opendaylight.controller.northbound.commons.utils,org.openda
+ ylight.controller.sal.authorization,org.opendaylight.controller.sal.cor
+ e,org.opendaylight.controller.sal.utils,org.opendaylight.controller.use
+ rmanager,org.slf4j;version="[1.7,2)"
+Jaxrs-Resources: ,org.opendaylight.controller.containermanager.northboun
+ d.ContainerManagerNorthbound
+Tool: Bnd-1.50.0
+Web-ContextPath: /controller/nb/v2/containermanager
